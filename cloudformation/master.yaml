@@ -1,0 +1,35 @@
+# S3, Sagemaker 제외
+Resources:
+  vpc:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chatbot-s3-repo.s3.ap-northeast-2.amazonaws.com/vpc.yaml
+
+  sg:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chatbot-s3-repo.s3.ap-northeast-2.amazonaws.com/security_group.yaml
+    DependsOn: vpc
+
+  policy:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chatbot-s3-repo.s3.ap-northeast-2.amazonaws.com/policy.yaml
+
+  ec2:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chatbot-s3-repo.s3.ap-northeast-2.amazonaws.com/ec2.yaml
+    DependsOn:
+      - vpc
+      - sg
+      - policy
+
+  route53:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://chatbot-s3-repo.s3.ap-northeast-2.amazonaws.com/Route53.yaml
+    DependsOn: 
+      - vpc
+      - ec2
+

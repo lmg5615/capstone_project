@@ -1,0 +1,15 @@
+Resources:
+  Route53:
+    Type: AWS::Route53::HostedZone
+    Properties:
+      Name: cbnu.store
+
+  Route53Record:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Name: www.cbnu.store
+      Type: A
+      TTL: 300
+      HostedZoneId: !GetAtt Route53.Id #HOSTZONE "ID"
+      ResourceRecords:
+        - !ImportValue ElasticIP
