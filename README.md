@@ -1,4 +1,4 @@
 # capstone_project
 
 ## Notion
-https://sable-mars-102.notion.site/Capstone-1b2cb42f28df80158e69c3b250f5bbbe?pvs=4
+https://clumsy-teeth-376.notion.site/Capstone-1d1a964e439c80a28637faf98c1979d4
